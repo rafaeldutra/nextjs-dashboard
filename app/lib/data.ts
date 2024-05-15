@@ -48,6 +48,9 @@ export async function fetchLatestInvoices() {
       JOIN customers ON invoices.customer_id = customers.id
       ORDER BY invoices.date DESC
       LIMIT 5`;*/
+      console.log('Fetching revenue data...');
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+
     var dataBase = await db.connect();
     const data = await dataBase.query(`SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
     FROM invoices
